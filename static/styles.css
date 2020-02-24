@@ -1,0 +1,35 @@
+#para1, h1 {
+    color: #0069d9;
+    text-align: center;
+}
+
+h2 {
+    color: #0069d9;
+}
+
+h4 {
+    color: #0069d9;
+    text-align: center;
+}
+
+#review {
+    text-align: center;
+    color: #0069d9;
+}
+
+#mybody {
+    background-color: #2C2F33;
+}
+
+#error_div {
+    color: white;
+}
+
+#rating {
+    background-color: #2C2F33;
+    color: white;
+}
+
+#details_page {
+    color: white;
+}

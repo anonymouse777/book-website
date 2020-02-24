@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block body %}
+    <h1>Sign Up</h1>
+    <form action="{{ url_for('signup') }}" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" id="rating" name="user_name" minlength="7" maxlength="21" placeholder="User Name" required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" id="rating" name="password" minlength="7" maxlength="21" placeholder="Password" required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" id="rating" name="confirm_password" minlength="7" maxlength="21" placeholder="Confirm Password" required>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary form-control">Sign Up</button>
+        </div>
+    </form>
+
+    <p id="para1">
+        Already have an account?<a href="{{ url_for('index') }}">Sign in</a>
+    </p>
+{% endblock %}

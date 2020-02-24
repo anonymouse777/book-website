@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Details
+{% endblock %}
+
+{% block body %}
+
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Sign out {{ user }}</a>
+        </li>
+    </ul>
+
+    <h1>Book Details</h1>
+
+    <div id="details_page">
+        <b>Book Title : </b> {{ book.title }}
+        <br>
+        <b>Book Author : </b> {{ book.author }}
+        <br>
+        <b>ISBN Number : </b> {{ book.isbn }}
+        <br>
+        <b>Publication Year : </b> {{ book.year}}
+        <br>
+        <b>Book Rating on Goodreads : </b> {{ rating }}
+        <br>
+        <b>Average Rating of the Book on Goodreads : </b> {{ average }}
+    </div>
+
+    <div id="details_page">
+        <br>
+        <h4>Reviews</h4>
+        <div>
+            {% if book_reviews != None %}
+                <ul>
+                    {% for book in book_reviews %}
+                        <li>
+                            <b>{{ book.user_name }} : </b><i> {{ book.rating_comment }}</i>
+                        </li>
+                    {% else %}
+                        <li>Be the first to give a review about the book.</li>
+                    {% endfor %}
+                <ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <form action="{{ url_for('bookdetails', user=user, book_isbn=book.isbn) }}" method="post">
+        <legend id="review">Add Book Review</legend>
+
+        <div class="form-group">
+            <select class="form-control" name="rating_integer" id="rating" required>
+                <option value="">Choose rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" id="rating" class="form-control" name="review_comment" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary form-control">Submit Review</button>
+        </div>
+    </form>
+{% endblock %}
